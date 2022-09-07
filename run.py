@@ -1,8 +1,8 @@
-from project.config import config
-from project.models import Genre
+from project.config import DevelopmentConfig
+from project.dao.models.genre import Genre
 from project.server import create_app, db
 
-app = create_app(config)
+app = create_app(DevelopmentConfig)
 
 
 @app.shell_context_processor
@@ -11,3 +11,7 @@ def shell():
         "db": db,
         "Genre": Genre,
     }
+
+
+if __name__ == '__main__':
+    app.run(host="localhost", port=25000, debug=True)

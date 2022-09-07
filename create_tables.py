@@ -1,7 +1,13 @@
-from project.config import config
+from project.config import DevelopmentConfig
+from project.dao.models.director import Director
+from project.dao.models.genre import Genre
+from project.dao.models.movie import Movie
+from project.dao.models.user import User
 from project.server import create_app
-from project.setup.db import db
+from project.setup_db import db
 
-if __name__ == '__main__':
-    with create_app(config).app_context():
-        db.create_all()
+app = create_app(DevelopmentConfig)
+
+with app.app_context():
+    db.drop_all()
+    db.create_all()

@@ -4,3 +4,14 @@ class BaseServiceError(Exception):
 
 class ItemNotFound(BaseServiceError):
     code = 404
+
+
+# class ItemNotFound(Exception):
+#     ...
+#
+#
+# class UserNotFound(ItemNotFound):
+#     pass
+#
+# class WrongPassword(ItemNotFound):
+#     pass
